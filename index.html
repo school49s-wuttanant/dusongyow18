@@ -98,6 +98,7 @@
                         <tr class="bg-gray-50 border-b border-gray-100 text-sm uppercase">
                             <th class="p-4 font-semibold text-gray-600">เลขที่</th>
                             <th class="p-4 font-semibold text-gray-600">เรื่อง / รายละเอียด</th>
+                            <th class="p-4 font-semibold text-gray-600">ลงวันที่</th>
                             <th class="p-4 font-semibold text-gray-600">ผู้รับผิดชอบ</th>
                             <th class="p-4 font-semibold text-gray-600">วันที่ทำสัญญา</th>
                             <th class="p-4 font-semibold text-gray-600">สิ้นสุดสัญญา</th>
@@ -243,6 +244,7 @@
             document.getElementById('editId').value = "";
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('contractDateField').value = today;
+            document.getElementById('signDateField').value = today;
             updateAutoNumberByDate();
             toggleModal(true);
         };
@@ -335,6 +337,7 @@
                                     ${isExpired ? 'หมดสัญญา' : 'ปกติ'}
                                 </span>
                             </td>
+                            <td class="p-4 text-gray-600">${formatThaiDate(c.signDate)}</td>
                             <td class="p-4 text-gray-600">${c.responsible}</td>
                             <td class="p-4">${formatThaiDate(c.contractDate)}</td>
                             <td class="p-4">${formatThaiDate(c.endDate)}</td>
